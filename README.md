@@ -6,16 +6,9 @@
 
 [![](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///main?urlpath=rstudio)
 
-This repository contains the data and code for our paper:
-
-> Low H, (2026). *Partial Reproduction of Boettiger Ecology Letters
-> 2018;1255-1267 with rrtools*. Ecol Lett <https://doi.org/xxx/xxx>
-
-Our pre-print is online here:
-
-> Low H, (2026). *Partial Reproduction of Boettiger Ecology Letters
-> 2018;1255-1267 with rrtools*. Ecol Lett, Accessed 05 May 2026. Online
-> at <https://doi.org/xxx/xxx>
+This repository contains the data and code to create a research
+compendium containing a partial reproduction of *Boettiger, Ecology
+Letters 2018;1255-1267* with rrtools.
 
 ### How to cite
 
@@ -23,7 +16,8 @@ Please cite this compendium as:
 
 > Low H, (2026), (2026). *Compendium of R code and data for Partial
 > Reproduction of Boettiger Ecology Letters 2018;1255-1267 with
-> rrtools*. Accessed 05 May 2026. Online at <https://doi.org/xxx/xxx>
+> rrtools*. Accessed 05 May 2026. Online at
+> <https://github.com/hzlow/rrcompendium>
 
 ## Contents
 
@@ -35,12 +29,6 @@ The **analysis** directory contains:
   `paper.pdf`, suitable for reading (the code is replaced by figures and
   tables in this file)
 - [:file_folder: data](./analysis/data): Data used in the analysis.
-- [:file_folder: figures](./analysis/figures): Plots and other
-  illustrations
-- [:file_folder:
-  supplementary-materials](./analysis/supplementary-materials):
-  Supplementary materials including notes and other documents prepared
-  and collected during the analysis.
 
 ## How to run in your browser or download and run locally
 

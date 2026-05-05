@@ -18,7 +18,7 @@ Title <- "Partial Reproduction of Boettiger Ecology Letters 2018;1255-1267 with 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh///main?urlpath=rstudio)
 
-This repository contains the data and code to create a research compendium containing a partial reproduction of Boettiger Ecology Letters 2018;1255-1267 with rrtools
+This repository contains the data and code to create a research compendium containing a partial reproduction of *Boettiger, Ecology Letters 2018;1255-1267* with rrtools.
 
 
 ### How to cite
