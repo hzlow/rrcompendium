@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^project\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
@@ -12,3 +14,7 @@ analysis
 ^project.*\.tar\.gz$
 ^project.*\.tgz$
 ^attic$
+^_dev-deps\.R$
+^rrcompendium\.Rcheck$
+^rrcompendium.*\.tar\.gz$
+^rrcompendium.*\.tgz$

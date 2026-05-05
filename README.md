@@ -51,12 +51,17 @@ software](https://cloud.r-project.org/) itself and optionally [RStudio
 Desktop](https://rstudio.com/products/rstudio/download/).
 
 You can download the compendium as a zip from from this URL:
-[main.zip](./archive/main.zip). After unzipping: - open the `.Rproj`
-file in RStudio - run `devtools::install()` to ensure you have the
-packages this analysis depends on (also listed in the
-[DESCRIPTION](./DESCRIPTION) file). - finally, open
-`analysis/paper/paper.qmd` and knit to produce the `paper.pdf`, or run
-`quarto::quarto_render("analysis/paper/paper.qmd")` in the R console
+[main.zip](./archive/main.zip). After unzipping:
+
+- open the `.Rproj` file in RStudio
+
+- run `renv::restore()` to install the exact package versions recorded
+  in `renv.lock`. You might need to install `renv` first with
+  `install.packages("renv")`.
+
+- finally, open `analysis/paper/paper.qmd` and knit to produce the
+  `paper.pdf`, or run
+  `quarto::quarto_render("analysis/paper/paper.qmd")` in the R console
 
 ### Licenses
 
