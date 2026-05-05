@@ -1,136 +1,95 @@
 ---
-title: "Title Goes Here"
+title: "From noise to knowledge: how randomness generates novel phenomena and reveals information"
 author:
-  - Jane Doe:
-      correspondence: "yes"
-      email: janedoe@fosg.org
-      orcid: 0000-0003-1689-0557
-      institute:
-        - fosg
-        - fop
-  - John Q. Doe:
-      institute: fosg
-      orcid: 0000-0003-1689-0558
-  - Peder Ås:
-      institute: fosg
-      orcid: 0000-0003-1689-0559
-  - Juan Pérez:
-      orcid: 0000-0003-1689-0551
-      institute:
-        - name: Acme Corporation
-  - Max Mustermann:
-      orcid: 0000-0003-1689-0552
-institute:
-  - fosg:
-      name: Formatting Open Science Group
-      address: 23 Science Street, Eureka, Mississippi, USA
-  - fop: Federation of Planets
-title-block-published: "Last updated"  
-date: now
-date-format: long
-format: 
-  docx:
-    reference-doc: "../templates/template.docx" # Insert path for the DOCX file
-execute:
-  echo: true
-  warning: false
-  message: false
-  comment: "#>"
-  fig-path: "../figures/"
-  fig-dpi: 600
-filters:
-  - ../templates/scholarly-metadata.lua
-  - ../templates/author-info-blocks.lua
-  - ../templates/pagebreak.lua
-bibliography: references.bib
-csl: "../templates/journal-of-archaeological-science.csl" # Insert path for the bib-style
+  - name: "Carl Boettiger"
+    email: "cboettig@berkeley.edu"
+    affiliations: 
+        - id: a
+          address: "Dept of Environmental Science, Policy, and Management, University of California Berkeley, Berkeley CA 94720-3114, USA"
+    attributes:
+        corresponding: true
 abstract: |
-  Text of abstract
-keywords: |
-  keyword 1; keyword 2; keyword 3
-highlights: |
-  These are the highlights. 
+  Noise, as the term itself suggests, is most often seen a nuisance to ecological insight, a inconvenient reality that must be acknowledged, a haystack that must be stripped away to reveal the processes of interest underneath. Yet despite this well-earned reputation, noise is often interesting in its own right: noise can induce novel phenomena that could not be understood from some underlying determinstic model alone.  Nor is all noise the same, and close examination of differences in frequency, color or magnitude can reveal insights that would otherwise be inaccessible.  Yet with each aspect of stochasticity leading to some new or unexpected behavior, the time is right to move beyond the familiar refrain of "everything is important" (Bjørnstad & Grenfell 2001).  Stochastic phenomena can suggest new ways of inferring process from pattern, and thus spark more dialog between theory and empirical perspectives that best advances the field as a whole. I highlight a few compelling examples, while observing that the study of stochastic phenomena are only beginning to make this translation into empirical inference.  There are rich opportunities at this interface in the years ahead.
+keywords: 
+  - Coloured noise
+  - demographic noise
+  - environmental noise
+  - quasi-cycles
+  - stochasticity
+  - tipping points
+date: last-modified
+bibliography: bibliography.bib
+format:
+  elsevier-pdf:
+    keep-tex: true
+    journal:
+      name: Ecology Letters
+      formatting: preprint
+      model: 3p # Don't set a model with preprint
+      cite-style: authoryear
 ---
 
-<!-- This is the format for text comments that will be ignored during renderings. Do not put R code in these comments because it will not be ignored. -->
+Please make sure that your manuscript follows the guidelines in the Guide for Authors of the relevant journal. It is not necessary to typeset your manuscript in exactly the same way as an article, unless you are submitting to a camera-ready copy (CRC) journal.
 
-<!-- With the following code you can access and display values from the yml header above. -->
+For detailed instructions regarding the elsevier article class, see <https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions>
 
-Keywords: `r rmarkdown::metadata$keywords`
+# Bibliography styles
 
-Highlights: `r rmarkdown::metadata$highlights`
+Here are two sample references: @Feynman1963118 @Dirac1953888.
 
-<!-- The actual document text starts here: -->
+With this template using elsevier class, natbib will be used. Three bibliographic style ﬁles (\*.bst) are provided and their use controled by `cite-style` option:
 
-# Introduction
+-   `citestyle: number` (default) will use `elsarticle-num.bst` - can be used for the numbered scheme
+-   `citestyle: numbername` will use `elsarticle-num-names.bst` - can be used for numbered with new options of natbib.sty
+-   `citestyle: authoryear` will use `elsarticle-harv.bst` — can be used for author year scheme
 
-Here is a citation [@Marwick2017]
+This `citestyle` will insert the right `.bst` and set the correct `classoption` for `elsarticle` document class.
 
-# Background
+Using `natbiboptions` variable in YAML header, you can set more options for `natbib` itself . Example
 
-# Methods
-
-# Results
-
-<!-- Here's some example analysis code: -->
-
-```{r}
-#| label: get-data
-#| eval: false
-# Note the path that we need to use to access our data files when rendering this document
-my_data <- read.csv(here::here('analysis/data/raw_data/my_csv_file.csv'))
+``` yaml
+natbiboptions: longnamesfirst,angle,semicolon
 ```
 
-```{r}
-#| label: fig-demo-plot
-#| fig-cap: "A plot of random numbers"
-plot(rnorm(10))
-```
+## Using CSL
 
-@fig-demo-plot shows how we can have a caption and cross-reference for a plot. Note that figure label and cross-references must both be prefixed with `fig-`
+If `cite-method` is set to `citeproc` in `elsevier_article()`, then pandoc is used for citations instead of `natbib`. In this case, the `csl` option is used to format the references. By default, this template will provide an appropriate style, but alternative `csl` files are available from <https://www.zotero.org/styles?q=elsevier>. These can be downloaded and stored locally, or the url can be used as in the example header.
+
+# Equations
+
+Here is an equation: $$ 
+  f_{X}(x) = \left(\frac{\alpha}{\beta}\right)
+  \left(\frac{x}{\beta}\right)^{\alpha-1}
+  e^{-\left(\frac{x}{\beta}\right)^{\alpha}}; 
+  \alpha,\beta,x > 0 .
+$$
+
+Inline equations work as well: $\sum_{i = 2}^\infty\{\alpha_i^\beta\}$
+
+# Figures and tables
+
+@fig-meaningless is generated using an R chunk.
 
 ```{r}
-#| label: demo-inline-code
+#| label: fig-meaningless
+#| fig-cap: A meaningless scatterplot
+#| fig-width: 5
+#| fig-height: 5
+#| fig-align: center
+#| out-width: 50%
 #| echo: false
-x <- round(pi, 2)
+plot(runif(25), runif(25))
 ```
 
-Here is an example of inline code `r x` in the middle of a sentence.
+# Tables coming from R
 
-# Discussion
-
-# Conclusion
-
-# Acknowledgements
-
-<!-- The following line inserts a page break  -->
-
-\newpage
-
-# References
-
-<!-- The following line ensures the references appear here for the MS Word or HTML output files, rather than right at the end of the document (this will not work for PDF files):  -->
-
-::: {#refs}
-:::
-
-\newpage
-
-### Colophon
-
-This report was generated on `r Sys.time()` using the following computational environment and dependencies:
+Tables can also be generated using R chunks, as shown in @tbl-simple example.
 
 ```{r}
-#| label: colophon
-#| cache: false
-
-# which R packages and versions?
-if ("devtools" %in% installed.packages()) devtools::session_info()
+#| label: tbl-simple
+#| tbl-cap: Caption centered above table
+#| echo: true
+knitr::kable(head(mtcars)[,1:4])
 ```
 
-The current Git commit details are:
-
-```{r}
-# what commit is this file at? 
-if ("git2r" %in% installed.packages() & git2r::in_repository(path = ".")) git2r::repository(here::here())  
-```
+# References {.unnumbered}
